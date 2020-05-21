@@ -23,8 +23,7 @@ public class SecurityDataSourceConfig {
 	@Bean(name = "securityMongoProperties")
 	@ConfigurationProperties("security.spring.data.mongodb")
 	public MongoProperties securityDataSourceProperties() {
-		MongoProperties mp = new MongoProperties();
-		return mp;
+		return new MongoProperties();
 	}
 	
 	@Primary
