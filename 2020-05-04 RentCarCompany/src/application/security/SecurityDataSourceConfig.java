@@ -23,14 +23,16 @@ public class SecurityDataSourceConfig {
 	@Bean(name = "securityMongoProperties")
 	@ConfigurationProperties("security.spring.data.mongodb")
 	public MongoProperties securityDataSourceProperties() {
-		return new MongoProperties();
+		MongoProperties mp = new MongoProperties();
+		return mp;
 	}
 	
 	@Primary
     @Bean(name = "securityMongoDbFactory")
     public MongoDbFactory securityMongoDbFactory(@Qualifier("securityMongoProperties") MongoProperties dataSourceProperties){
 		return new SimpleMongoClientDbFactory(
-    			MongoClients.create("mongodb://"+dataSourceProperties.getHost()+":"+dataSourceProperties.getPort()),
+    			//MongoClients.create("mongodb://"+dataSourceProperties.getHost()+":"+dataSourceProperties.getPort()),
+    			MongoClients.create(dataSourceProperties.getUri()),
         		dataSourceProperties.getDatabase());
     }
 	
