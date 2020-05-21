@@ -17,7 +17,7 @@ import application.business.services.AnalistServiceImpl.StringNumber;
 @RestController
 @CrossOrigin
 @RequestMapping("/analist")
-public class AnalistController {
+public class AnalistController  {
 	
 	@Autowired AnalistService service;
 	
