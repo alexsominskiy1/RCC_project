@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint);
 		http.cors();
 		
-		http.authorizeRequests().antMatchers("/**").permitAll(); // init backdoor
+		//http.authorizeRequests().antMatchers("/**").permitAll(); // init backdoor
 		
 		http.authorizeRequests().antMatchers("/jwt/authenticate").permitAll();		
 		http.authorizeRequests().antMatchers("/security/**").hasAnyRole("BOSS","ADMIN");
