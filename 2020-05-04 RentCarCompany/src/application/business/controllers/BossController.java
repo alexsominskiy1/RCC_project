@@ -12,6 +12,7 @@ import application.business.dto.CarDto;
 import application.business.dto.ModelDto;
 import application.business.dto.RccConfigDto;
 import application.business.services.BossService;
+import ch.qos.logback.classic.net.SyslogAppender;
 
 @RestController
 @CrossOrigin
@@ -24,6 +25,8 @@ public class BossController {
 	public RccConfigDto setConfig(@RequestBody RccConfigDto config) {
 		return service.setConfig(config);
 	}
+	
+	
 	
 	@PostMapping("/addModel")
 	public ModelDto addModel(@RequestBody ModelDto model) {
